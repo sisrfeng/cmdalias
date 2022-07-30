@@ -1,11 +1,28 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=746
 
-Sometimes we want to to change the behavior of a built-in command so end up creating a custom command, and we wish to reuse the built-in command name for it. E.g., :Runtime to replace :runtime, :Find to replace :find. I myself wanted to replace :qa with :QA (see http://vim.wikia.com/wiki/Tabclose_instead_of_quit-all), but it is hard to remember to type :QA instead of :qa everytime, that is why I created this plugin.
+Sometimes we want to to change the behavior of a built-in command so end up creating a custom command,
+and we wish to reuse the built-in command name for it.
+E.g.,
+    :Runtime to replace :runtime,
+    :Find to replace :find.
 
-This plugin is just a wrapper on top of command-line abbreviations (:cabbr), to work around the big disadvantages of :cabbr. With plain :cabbr, the expansion happens anywhere the abbreviation appears while typing command-line. E.g., if you create abbreviation from runtime->Runtime, then the following will not work as you expect:
+I myself wanted to replace :qa with :QA
+    (see http://vim.wikia.com/wiki/Tabclose_instead_of_quit-all),
+but it is hard to remember to type :QA instead of :qa everytime,
+that is  why I created this plugin.
 
-:cnoreabbr runtime Runtime
-:%s/runtime/runduration/g
+This plugin is just a wrapper on top of command-line abbreviations
+(:cabbr),
+
+With plain :cabbr,
+the expansion happens anywhere the abbreviation appears
+while typing command-line.
+E.g.,
+if you create abbreviation from runtime->Runtime,
+then the following will not work as you expect:
+
+    :cnoreabbr runtime Runtime
+    :%s/runtime/runduration/g
 
 What would actually execute is:
 
